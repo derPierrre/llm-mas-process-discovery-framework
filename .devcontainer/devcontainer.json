@@ -1,0 +1,42 @@
+{
+    "name": "Python Development",
+    "dockerComposeFile": "docker-compose.yml",
+    "service": "devcontainer",
+    "workspaceFolder": "/workspace",
+
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "terminal.integrated.defaultProfile.linux": "bash",
+                "terminal.integrated.profiles.linux": {
+                    "bash": {
+                        "path": "/bin/bash",
+                        "icon": "terminal-bash"
+                    }
+                },
+                "python.defaultInterpreterPath": "/usr/local/bin/python",
+                "python.linting.enabled": true,
+                "python.linting.pylintEnabled": true,
+                "python.formatting.provider": "black",
+                "editor.formatOnSave": true,
+                "python.analysis.typeCheckingMode": "standard"
+            },
+            "extensions": [
+                "ms-python.python",
+                "ms-python.vscode-pylance",
+                "ms-toolsai.jupyter",
+                "ms-python.isort",
+                "ms-toolsai.datawrangler"
+            ]
+        }
+    },
+
+    "forwardPorts": [8888, 5000],
+
+    "portsAttributes": {
+        "5000": {
+            "label": "MLflow UI",
+            "onAutoForward": "openBrowser"
+        }
+    }
+}

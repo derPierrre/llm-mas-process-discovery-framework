@@ -1,0 +1,47 @@
+version: '3'
+
+services:
+  init-permissions:
+    image: alpine
+    user: root
+    volumes:
+      - mlflow-data:/mlflow/data
+      - mlflow-artifacts:/mlflow/artifacts
+    command: >
+      sh -c "mkdir -p /mlflow/data /mlflow/artifacts &&
+             chmod -R 777 /mlflow/data /mlflow/artifacts"
+
+  devcontainer:
+    depends_on:
+      - init-permissions
+    build:
+      context: ..
+      dockerfile: .devcontainer/Dockerfile
+    volumes:
+      - ..:/workspace
+      - mlflow-data:/mlflow/data
+      - mlflow-artifacts:/mlflow/artifacts
+      - vscode:/vscode
+      - ${HOME}/.config/gcloud/application_default_credentials.json:/home/vscode/.config/gcloud/application_default_credentials.json:ro
+    ports:
+      - "5000:5000"
+      - "8888:8888"
+    environment:
+      - MLFLOW_TRACKING_URI=http://localhost:5000
+      - PYTHONPATH=/workspace
+      - MPLCONFIGDIR=/tmp/matplotlib-config
+      - DEEPSEEK_API_KEY=${DEEPSEEK_API_KEY}
+      - MISTRAL_API_KEY=${MISTRAL_API_KEY}
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+      - GOOGLE_APPLICATION_CREDENTIALS=/home/vscode/.config/gcloud/application_default_credentials.json
+      - GOOGLE_CLOUD_PROJECT=kinetic-genre-456021-c9
+      - GOOGLE_CLOUD_LOCATION=europe-west1  # Choose appropriate region
+    command: mlflow server --backend-store-uri /mlflow/data --default-artifact-root /mlflow/artifacts --host 0.0.0.0 --port 5000 &
+
+volumes:
+  mlflow-data:
+    name: mlflow-data
+  mlflow-artifacts:
+    name: mlflow-artifacts
+  vscode:
+    external: true
