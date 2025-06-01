@@ -1,4 +1,4 @@
-# Process Discovery with Large Language Models
+# Process Discovery with LLM-based Multi-Agent Systems
 
 This repository contains the implementation code for the Master Thesis.
 
