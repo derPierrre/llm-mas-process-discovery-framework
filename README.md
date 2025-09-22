@@ -1,6 +1,6 @@
 # Process Discovery with LLM-based Multi-Agent Systems
 
-This repository contains the implementation code for the Master Thesis.
+This repository contains the implementation of the LLM-based agent choreography framework. 
 
 ## Quick Start
 
