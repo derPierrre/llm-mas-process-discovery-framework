@@ -32,6 +32,6 @@ The project supports multiple LLM providers. Configure the required API keys as 
 
 ## Detailed Information about the Framework
 
-See **Dramework_info.pdf** for more information about the framework 
+See **framework_info.pdf** for more information about the framework. 
 
 
