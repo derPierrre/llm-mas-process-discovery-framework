@@ -13,9 +13,9 @@ The project is designed to work seamlessly with **Visual Studio Code Dev Contain
 
 ### Setup
 1. Clone this repository
-2. Open in Visual Studio Code
+2. Open in Visual Studio Code or any other IDE
 3. When prompted, click "Reopen in Container"
-4. The container will automatically set up the complete environment including MLflow
+4. The container will automatically set up the complete environment, including MLflow
 
 ## API Configuration
 
@@ -29,3 +29,9 @@ The project supports multiple LLM providers. Configure the required API keys as 
 | **Mistral** | `MISTRAL_API_KEY` | ✅ Free tier available |
 | **Gemini** | `GEMINI_API_KEY` | ✅ Free tier available |
 | **Google Vertex AI** | `GOOGLE_APPLICATION_CREDENTIALS` | Path to service account JSON file |
+
+## Detailed Information about the Framework
+
+See **Dramework_info.pdf** for more information about the framework 
+
+
