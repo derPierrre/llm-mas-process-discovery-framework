@@ -1,5 +1,6 @@
 # Process Discovery with LLM-based Multi-Agent Systems
 
+This is the accompanying repository for the paper "Business Process Discovery through Agentic Generative AI" in ICSOC 2025.
 This repository contains the implementation of the LLM-based agent choreography framework. 
 
 ## Quick Start
