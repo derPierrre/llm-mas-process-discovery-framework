@@ -14,7 +14,7 @@ The project is designed to work seamlessly with **Visual Studio Code Dev Contain
 
 ### Setup
 1. Clone this repository
-2. Open in Visual Studio Code or any other IDE
+2. Open in Visual Studio Code (or other IDE with Devcontainer support)
 3. When prompted, click "Reopen in Container"
 4. The container will automatically set up the complete environment, including MLflow
 
@@ -30,6 +30,10 @@ The project supports multiple LLM providers. Configure the required API keys as 
 | **Mistral** | `MISTRAL_API_KEY` | ✅ Free tier available |
 | **Gemini** | `GEMINI_API_KEY` | ✅ Free tier available |
 | **Google Vertex AI** | `GOOGLE_APPLICATION_CREDENTIALS` | Path to service account JSON file |
+
+### Running experiments
+
+Helpfull functions to run single experiments or multiple experiments isolated in parallel are defined in the `user_functions.py`. The `main.py` shows a minimal example of how these functions can be used where the main.py needs to be executed from within the container to create and track an experiment.
 
 ## Detailed Information about the Framework
 
